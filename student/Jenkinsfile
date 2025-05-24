@@ -42,15 +42,16 @@ pipeline {
 			steps {
 				sh '''
 					echo "[+] Running tests with JUnit..."
-					java -jar ${JUNIT_JAR_PATH} \
-						--class-path ${CLASS_DIR} \
-						--scan-class-path \
-						--details=tree \
-						--details-theme=ascii \
-						--reports-dir ${REPORT_DIR} \
-						--config=junit.platform.output.capture.stdout=true \
-						--config=junit.platform.reporting.open.xml.enabled=true \
-						> ${REPORT_DIR}/test-output.txt
+					(
+     						java -jar ${JUNIT_JAR_PATH} \
+							--class-path ${CLASS_DIR} \
+							--scan-class-path \
+							--details=tree \
+							--details-theme=ascii \
+							--reports-dir ${REPORT_DIR} \
+							--config=junit.platform.output.capture.stdout=true \
+							--config=junit.platform.reporting.open.xml.enabled=true \
+					)> ${REPORT_DIR}/test-output.txt
 				'''
 			}
 		}
