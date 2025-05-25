@@ -40,6 +40,6 @@ class StudentManagerTest {
 			sm.removeStudent("홍길동");
 		});
 	}
-
+//TEST
 
 }
